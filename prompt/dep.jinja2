@@ -1,0 +1,17 @@
+The focal method is `{{ focal_method }}` in the focal class `{{ class_name }}`, and their information is:
+```{{ full_fm }}```.
+
+{% for key, value in c_deps.items() %}
+Brief information of dependent class `{{ key }}`:
+```{{ value }}```.
+{% endfor %}
+{% for key, value in m_deps.items() %}
+Brief information of dependent class `{{ key }}`:
+```{{ value }}```.
+{% endfor %}
+
+Here is the project, class, and method description:
+```{{ code_description }}```
+
+Here is the EvoSuite-generated test case to convert:
+```{{ evo }}```

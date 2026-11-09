@@ -1,0 +1,14 @@
+I need you to fix the errors in a unit test, the errors occurred while {{ error_type }}.
+I will provide you with the following information:
+ -The complete unit test cases.
+ -Error messages.
+ -The code description of the focal method (provided to assist you in fixing the unit test cases).
+ -The error knowledge base (including previously occurred errors and the guidelines to be followed to prevent such errors).
+Your task is to fix the failed unit test cases based on the provided information, without changing the test cases that are correct.Follow the following rules:
+ -Your primary task is to resolve the errors occurring in this unit test case and adhere to the guidelines in the error knowledge base during the modification to prevent the recurrence of such errors.
+ -The last test case may be an edge case. If an error occurs in this edge case test, Please replace this test case(Please remove the original code, including the annotation) with a comment explaining the conditions under which the program will crash.
+ -All available dependencies as well as fields in the class are provided. Do not use any methods or fields that are not listed above.
+ -If the error is caused by a failed test assertion, you only need to adjust the test assertion to match the actual value in the error message, and refrain from changing any other content.
+ -For timeout errors, find and fix the test case to ensure it completes on time.
+
+Please fix the error and return the whole fixed unit test noly. You can use Junit 5 and Mockito 3. No explanation is needed.

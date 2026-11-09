@@ -1,0 +1,36 @@
+Analyze the comments and code content of the provided code block and Java file, and generate a detailed, structured report for the {{ method_name }} in the {{ class_name }} class. Adhere strictly to the following requirements:
+
+1. Project Background:
+   Analyze the technical domain and core objectives of the project by combining package structure, class responsibilities, and code comments. Describe it in plain text (no redundant jargon) with only 2 key points:
+   - The core purpose of the library (e.g., "Apache Commons CLI for parsing command-line options")
+   - The role of the {{ class_name }} in the library (e.g., "abstract base class for help formatting")
+   *Keep this section concise (max 100 words), no extra interpretation.*
+
+2. Class Functionality:
+   - Core responsibility: Clearly state the core responsibility of {{ class_name }} (1-2 sentences), including abstract methods (if any) and their mandatory implementation requirements (e.g., "subclasses must implement getTableDefinition to define option table structure").Add instance creation rules for non-instantiable classes: if constructors are private/protected, explicitly state "Instances can only be created via [Builder/nested class/parser] (not direct instantiation with new)".
+   - Getter/Setter Methods: List all getter/setter methods in the class in sequential order, with FULL access modifiers and complete signatures (format: [modifier] methodName(parameterType1 parameterName, ...) : returnType). If none, state: "This class has no getter or setter methods".
+   - Fields: List all fields with COMPLETE signatures (access modifier + final/static + type + name + initialization value if any). Example: public static final String DEFAULT_SYNTAX_PREFIX = "usage: "; private String syntaxPrefix = DEFAULT_SYNTAX_PREFIX;. If none, state: "This class does not contain any fields."
+   - Critical Interface Implementation: Explicitly list all interfaces implemented by {{ class_name }} or its parent classes (e.g., "Builder subclass implements java.util.function.Supplier<T>"), including mandatory methods to implement (e.g., "T get()").
+
+3. Focal Method Details:
+   - Core Logic: Explain the execution flow of {{ method_name }} in plain text (max 200 words) with 4 mandatory subsections (no extra content):
+     1. Input parameters: Type, purpose, nullability/non-empty constraints (e.g., "cmdLineSyntax: String (non-null/non-empty, required command syntax)").
+     2. Key steps: Only core execution logic (e.g., parameter validation → usage line generation → header/footer output → options table output), omit trivial details.
+     3. Return result: Type, meaning, and side effects (e.g., "void, writes help output to HelpAppendable instance").
+     4. Special constraints: Only non-null guarantees, field initialization rules, and exception types thrown (e.g., "helpAppendable is non-null (enforced by constructor); throws IOException if output fails").Add constructor access constraints here if relevant: e.g., "Constructor {{ class_name }}(List, List, Consumer) is private; direct instantiation via new is prohibited".
+
+4. Dependent Details:
+   - Classification Rule: Only include dependencies DIRECTLY invoked by {{ method_name }} (exclude indirect dependencies unless critical to compilation).
+   - Format for Each Dependency (sequential numbering):
+     1. Full signature (modifiers + method/constructor name + parameters) : return type
+     2. Belonging class: Full class name (e.g., org.apache.commons.cli.help.Util)
+     3. Core functionality: How it supports {{ method_name }} (1 sentence, max 50 words)
+   - Mandatory Inclusions: Constructor methods (e.g., {{ class_name }}.<init>(Builder<?, ?> builder)), null validation methods (e.g., Objects.requireNonNull()), and interface-implemented methods (e.g., Supplier.get()), and access control modifiers for all constructors (critical for compilation).
+   - If no dependencies: State "No Dependencies".
+
+Output Format Rules (STRICT ENFORCEMENT):
+   1. Plain text only, no tables/bullet points (use numbering for sequential lists), no bold/italics.
+   2. All method/field signatures must be 100% consistent with the provided code (modifiers, names, values).
+   3. Omit all redundant content (e.g., repeated explanations, subjective interpretation, irrelevant dependency details).
+   4. Focus on compilation-critical information: Interface implementation → mandatory methods → non-null constraints → core execution logic (no extra business logic interpretation).
+   5. Total report length: Max 500 words (prioritize compilation-critical details over business logic).

@@ -1,0 +1,33 @@
+# Task Objective
+Analyze failed test cases and extract actionable error knowledge for inclusion in an Error Knowledge Base. Focus on two key aspects: error conditions and prevention rules.
+
+# Knowledge Structure Requirements
+Each error knowledge entry must contain exactly two core components:
+
+## 1. Error Conditions
+- Describe the specific scenarios, inputs, or conditions that trigger the error
+- Include boundary cases, edge conditions, and environmental factors
+- Specify the exact circumstances under which the failure occurs
+
+## 2. Prevention Rules
+- Provide specific, actionable rules to avoid this type of error
+- Include coding standards, test design principles, and validation strategies
+- Rules should be generalizable to similar contexts
+
+## Processing Logic:
+- If the current error matches an existing pattern in the knowledge base: **enhance and refine** the existing rules
+- If this is a new error pattern: **create a new entry** in the knowledge base
+- Always maintain backward compatibility with previous knowledge
+
+# Output Format
+Please receive the existing knowledge base(if any), merge the newly generated knowledge entries into it, and then output the complete, updated content of the knowledge base.
+Return the updated knowledge base in the following plain text format:
+```
+1.1: [Describe the first error condition - specific scenario that triggers the error]
+1.2: [Provide the first prevention rule - specific actionable rule to avoid this error]
+
+2.1: [Describe the second error condition if applicable]
+2.2: [Provide the second prevention rule if applicable]
+[Continue numbering for additional error conditions and corresponding prevention rules]
+......
+```
